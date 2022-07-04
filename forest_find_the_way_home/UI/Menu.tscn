@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Images/Controls/play.png" type="Texture" id=1]
+[ext_resource path="res://Images/Controls/exit.png" type="Texture" id=2]
+[ext_resource path="res://Images/Controls/help.png" type="Texture" id=3]
+[ext_resource path="res://UI/Menu.gd" type="Script" id=4]
+[ext_resource path="res://Images/tutorial.png" type="Texture" id=5]
+[ext_resource path="res://Images/Controls/next.png" type="Texture" id=6]
+[ext_resource path="res://Images/Controls/prev.png" type="Texture" id=7]
+[ext_resource path="res://Font/Montserrat-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Images/Controls/logo.png" type="Texture" id=9]
+[ext_resource path="res://Images/Controls/box.png" type="Texture" id=10]
+[ext_resource path="res://Images/Controls/box2.png" type="Texture" id=11]
+[ext_resource path="res://Images/home.png" type="Texture" id=12]
+[ext_resource path="res://Images/Controls/player_icon.png" type="Texture" id=13]
+[ext_resource path="res://Images/mushroom.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+use_filter = true
+font_data = ExtResource( 8 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.890196, 0.956863, 0.843137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="Sprite" parent="."]
+position = Vector2( 835.816, 252.903 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Play" type="TextureButton" parent="."]
+margin_left = 61.9086
+margin_top = 210.93
+margin_right = 288.909
+margin_bottom = 310.93
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="TextureButton" parent="."]
+margin_left = 133.342
+margin_top = 374.627
+margin_right = 360.342
+margin_bottom = 474.627
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="."]
+visible = false
+margin_left = 1016.91
+margin_top = 575.675
+margin_right = 1243.91
+margin_bottom = 675.675
+disabled = true
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 1127.93
+margin_top = -7.83172
+margin_right = 1331.93
+margin_bottom = 62.1683
+focus_mode = 0
+custom_icons/checked = ExtResource( 11 )
+custom_icons/unchecked = ExtResource( 10 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_disabled = Color( 0.176471, 0.313726, 0.0862745, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.176471, 0.313726, 0.0862745, 1 )
+custom_colors/font_color = Color( 0.176471, 0.313726, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 0.176471, 0.313726, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.176471, 0.313726, 0.0862745, 1 )
+enabled_focus_mode = 0
+text = "Full screen"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mushroom" type="Sprite" parent="."]
+position = Vector2( 325.56, 356.639 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 14 )
+
+[node name="player_icon" type="Sprite" parent="."]
+position = Vector2( 172.002, 167.4 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 13 )
+
+[node name="home" type="Sprite" parent="."]
+position = Vector2( 829.27, 526.016 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+centered = false
+hframes = 9
+
+[node name="Next" type="TextureButton" parent="."]
+visible = false
+margin_left = 1152.82
+margin_top = 12.4726
+margin_right = 1266.82
+margin_bottom = 62.4726
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prev" type="TextureButton" parent="."]
+visible = false
+margin_left = 16.0362
+margin_top = 16.0362
+margin_right = 208.036
+margin_bottom = 66.0362
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Prev" to="." method="_on_Prev_pressed"]

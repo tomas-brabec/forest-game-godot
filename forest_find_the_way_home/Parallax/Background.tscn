@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Parallax/bc.png" type="Texture" id=1]
+[ext_resource path="res://Parallax/bc1.png" type="Texture" id=2]
+[ext_resource path="res://Parallax/bc2.png" type="Texture" id=3]
+[ext_resource path="res://Parallax/bc3.png" type="Texture" id=4]
+[ext_resource path="res://Parallax/bc4.png" type="Texture" id=5]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+offset = Vector2( 640, 360 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.28, 0.35 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 2 )
+offset = Vector2( 640, 360 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.2 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 3 )
+offset = Vector2( 640, 360 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 0.5 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 4 )
+offset = Vector2( 640, 360 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 0.9 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource( 5 )
+offset = Vector2( 640, 360 )

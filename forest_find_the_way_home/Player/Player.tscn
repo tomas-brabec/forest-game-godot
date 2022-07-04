@@ -1,0 +1,205 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Images/player_body_anim.png" type="Texture" id=1]
+[ext_resource path="res://Images/player_eye.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Items/WateringCan.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/ItemIcon.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 15.0
+height = 40.0
+
+[sub_resource type="Animation" id=2]
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 13, 14 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18, 19, 20, 21, 22 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Idle_Action"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Run_Action"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachine" id=24]
+states/Idle/node = SubResource( 7 )
+states/Idle/position = Vector2( 290, 107 )
+states/Idle_Action/node = SubResource( 8 )
+states/Idle_Action/position = Vector2( 97, 107 )
+states/Jump/node = SubResource( 9 )
+states/Jump/position = Vector2( 555, 107 )
+states/Run/node = SubResource( 10 )
+states/Run/position = Vector2( 423, 303 )
+states/Run_Action/node = SubResource( 11 )
+states/Run_Action/position = Vector2( 97, 303 )
+transitions = [ "Run", "Jump", SubResource( 12 ), "Jump", "Run", SubResource( 13 ), "Idle", "Jump", SubResource( 14 ), "Idle", "Run", SubResource( 15 ), "Run", "Idle", SubResource( 16 ), "Jump", "Idle", SubResource( 17 ), "Idle", "Idle_Action", SubResource( 18 ), "Idle_Action", "Idle", SubResource( 19 ), "Idle_Action", "Run_Action", SubResource( 20 ), "Run_Action", "Idle_Action", SubResource( 21 ), "Run", "Run_Action", SubResource( 22 ), "Run_Action", "Run", SubResource( 23 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -318, 21 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+
+[node name="Player" type="KinematicBody2D"]
+z_index = 11
+collision_layer = 2
+collision_mask = 17
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="player_body" type="Sprite" parent="."]
+position = Vector2( 0, -45 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+hframes = 23
+
+[node name="player_eye" type="Sprite" parent="."]
+position = Vector2( -11.25, -73.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="player_eye2" type="Sprite" parent="."]
+position = Vector2( 11.25, -73.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -36.6847 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 2 )
+anims/Idle_Action = SubResource( 3 )
+anims/Jump = SubResource( 4 )
+anims/Run = SubResource( 5 )
+anims/Run_Action = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 24 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 25 )
+
+[node name="WateringCan" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 8, -120 )
+
+[node name="ItemIcon" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 0, -120 )
+
+[node name="ItemIcon2" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 0, -120 )
+item_name = 1
+
+[node name="ItemIcon3" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 0, -120 )
+item_name = 2
